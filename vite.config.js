@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? './' : '/',
   server: {
     host: '127.0.0.1',
     port: 5188,
@@ -10,4 +11,4 @@ export default defineConfig({
     target: 'es2022',
     chunkSizeWarningLimit: 1200,
   },
-});
+}));
