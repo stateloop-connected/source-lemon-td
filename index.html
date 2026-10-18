@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="theme-color" content="#8fd3ff" />
+  <title>柠檬塔防 · LEMON TD</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='34' r='22' fill='%23ffd94a'/%3E%3Cpath d='M32 8c8 2 14 8 16 16-8-4-14-10-16-16z' fill='%235fbf4a'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/src/ui/styles.css" />
+</head>
+<body>
+  <canvas id="scene"></canvas>
+  <div class="vignette"></div>
+
+  <div id="hud" class="hud hidden">
+    <header class="topbar">
+      <div class="brand">
+        <div class="lemon">🍋</div>
+        <div class="brandtext"><b>柠檬塔防</b><span>LEMON TD</span></div>
+      </div>
+
+      <div class="stats">
+        <div class="stat" id="stat-lives">
+          <span class="s-ico heart">❤</span><b id="lives">20</b><span class="s-lab">生命</span>
+        </div>
+        <div class="stat" id="stat-gold">
+          <span class="s-ico coin">◈</span><b id="gold">300</b><span class="s-lab">金币</span>
+        </div>
+        <div class="stat" id="stat-wave">
+          <span class="s-ico flag">⚑</span><b id="wave">0</b><span class="s-lab" id="waveTotal">/ 20 波</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="btn-speed" class="toolbtn" title="游戏速度 (F)">1×</button>
+        <button id="btn-pause" class="toolbtn" title="暂停 (空格)">❚❚</button>
+        <button id="btn-sound" class="toolbtn" title="声音 (M)">♪</button>
+        <button id="btn-help" class="toolbtn" title="帮助 (H)">?</button>
+      </div>
+    </header>
+
+    <div id="bossbar" class="bossbar hidden">
+      <div class="bossname" id="bossName">食人魔酋长</div>
+      <div class="bosstrack"><i id="bossFill"></i></div>
+    </div>
+
+    <div id="banner" class="banner"><b></b><span></span></div>
+    <div id="toasts" class="toasts"></div>
+
+    <aside id="towerpanel" class="towerpanel hidden">
+      <div class="tp-head">
+        <div class="tp-icon"><img alt="" /></div>
+        <div class="tp-titles">
+          <div class="tp-name">箭塔</div>
+          <div class="tp-level">Lv.1</div>
+        </div>
+        <button class="tp-close" title="关闭">×</button>
+      </div>
+      <div class="tp-stats"></div>
+      <div class="tp-actions">
+        <button class="btn upgrade"><b>升级</b><span></span></button>
+        <button class="btn sell"><b>出售</b><span></span></button>
+      </div>
+      <button class="btn ghost target">目标：最前方</button>
+    </aside>
+
+    <div class="dock">
+      <div class="shop" id="shop"></div>
+      <div class="wavewrap">
+        <button id="btn-wave" class="wavebtn"><b>下一波</b><span>准备中</span></button>
+        <div class="tip">1–5 选塔 · 点草地建造</div>
+      </div>
+    </div>
+
+    <div class="hintbar">拖动旋转 · 滚轮缩放 · 右键 / ESC 取消 · 空格暂停</div>
+  </div>
+
+  <div id="overlay" class="overlay hidden"></div>
+
+  <div id="loading" class="loading">
+    <div class="lemon-spin">🍋</div>
+    <p>正在捏模型…</p>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
